@@ -3,7 +3,7 @@
 
 # pylint: disable=C0111
 
-__updated__ = '2018-01-29 19:27:26'
+__updated__ = '2018-01-29 22:19:36'
 
 import enum
 
@@ -17,8 +17,17 @@ class Format(enum.Enum):
 @enum.unique
 class GameType(enum.Enum):
     NFL = enum.auto()
+    MLB = enum.auto()
+    NBA = enum.auto()
+    NHL = enum.auto()
+    SOCCER = enum.auto()
+    CFB = enum.auto()
+    CBB = enum.auto()
 
 
 @enum.unique
 class Category(enum.Enum):
     SCORES = enum.auto()
+    STATS = enum.auto()
+    PBP = enum.auto()
+    PROJECTIONS = enum.auto()
