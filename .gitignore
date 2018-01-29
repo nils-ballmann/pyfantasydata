@@ -299,3 +299,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# TODO: remove when api_keys are removed
+pyfantasydata/__main__.py
+
