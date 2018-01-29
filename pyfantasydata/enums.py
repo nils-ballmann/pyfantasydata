@@ -3,7 +3,7 @@
 
 # pylint: disable=C0111
 
-__updated__ = '2018-01-29 23:18:14'
+__updated__ = '2018-01-30 00:18:57'
 
 import enum
 
@@ -31,3 +31,10 @@ class ApiCategory(enum.Enum):
     STATS = enum.auto()
     PBP = enum.auto()
     PROJECTIONS = enum.auto()
+
+
+@enum.unique
+class SeasonType(enum.Enum):
+    PRE = enum.auto()
+    REG = enum.auto()
+    POST = enum.auto()
