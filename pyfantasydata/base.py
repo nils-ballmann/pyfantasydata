@@ -3,7 +3,7 @@
 
 # pylint: disable=C0111
 
-__updated__ = '2018-01-29 23:52:36'
+__updated__ = '2018-01-30 00:00:20'
 
 import collections
 import xml.etree.ElementTree as et
@@ -83,3 +83,8 @@ class Base(object):
     def get(self, endpoint, **kwargs):
         url = self._url(endpoint)
         return self._get(url, **kwargs)
+
+
+class NFL(Base):
+    def __init__(self, api_key, api_category, **kwargs):
+        super().__init__(api_key, enums.ApiName.NFL, api_category, **kwargs)
