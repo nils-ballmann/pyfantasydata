@@ -3,7 +3,7 @@
 
 # pylint: disable=C0111
 
-__updated__ = '2018-01-30 00:00:40'
+__updated__ = '2018-01-30 00:12:43'
 
 from . import enums, base
 
@@ -20,3 +20,8 @@ class NFLScores(base.NFL):
 
     def all_teams(self, **kwargs):
         return self.get('AllTeams', **kwargs)
+
+    def box_score_by_score_id_v3(self, score_id, **kwargs):
+        return self.get(
+            'BoxScoreByScoreIDV3/{}'.format(int(score_id)), **kwargs
+        )
