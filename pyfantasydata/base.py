@@ -3,7 +3,7 @@
 
 # pylint: disable=C0111
 
-__updated__ = '2018-01-29 21:42:26'
+__updated__ = '2018-01-29 22:36:55'
 
 import collections
 import xml.etree.ElementTree as et
@@ -46,10 +46,23 @@ class Base(object):
         self.session = requests.Session(**kwargs)
 
     def get(self, relative_url):
+        if isinstance(relative_url, str):
+            relative_url = yarl.URL(relative_url)
+        if not isinstance(relative_url, yarl.URL):
+            raise TypeError(
+                '"relative_url" must be of type "yarl.URL", but is of type "{}"'.
+                format(type(relative_url).__name__)
+            )
+        if relative_url.is_absolute():
+            raise ValueError(
+                '"relative_url" must be relative url, but is absolute url "{}"'.
+                format(relative_url)
+            )
+
         # try all the keys
         for key in self.api_keys:
             response = self.session.get(
-                self.url / relative_url,
+                self.url.join(relative_url),
                 headers={'Ocp-Apim-Subscription-Key': key}
             )
             if response.ok:
