@@ -3,7 +3,7 @@
 
 # pylint: disable=C0111
 
-__updated__ = '2018-01-30 00:00:20'
+__updated__ = '2018-01-30 21:51:06'
 
 import collections
 import xml.etree.ElementTree as et
@@ -38,7 +38,7 @@ class Base(object):
         else:
             self.api_name = enums.ApiName(api_name)
 
-        if isinstance(api_name, str):
+        if isinstance(api_category, str):
             self.api_category = enums.ApiCategory[api_category.upper()]
         else:
             self.api_category = enums.ApiCategory(api_category)
